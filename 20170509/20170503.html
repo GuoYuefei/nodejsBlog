@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>my first js test</title>
+	<script>
+		function changeContent(){
+			x=document.getElementById("par");
+			x.innerHTML="I'm changed by you!";
+			x.style.color="#FF0000";
+			console.log("changeContent");
+		}
+		function isnum(){
+			x = document.getElementById("test").value;
+			if(x==""||isNaN(x)){
+				alert("空或者输入不是数字");
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+	<h1>Hello word!</h1>
+	<script>document.write('<p id="ti">'+Date()+'</p>');</script>
+	<p id="par">
+		hello
+	</p>
+
+
+	<button type="button" onclick="changeContent()">点我</button>
+	<br/>
+	<input id="test" type="text"/>
+	<button type="button" onclick="isnum()">判断是不是数字</button>
+</body>
+</html>

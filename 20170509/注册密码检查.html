@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+<script>
+	window.addEventListener('load', function(e) {
+		//用css删选器
+	  document.querySelector('#test').innerHTML = 12+16;
+	}, false);
+
+	function ischange(){
+		fi=document.forms["myForm"]["first"];
+		console.log(fi.value);
+		se=document.forms["myForm"]["seconds"];
+		if(fi.value==""||se.value==""){
+			document.getElementById("tishi").innerHTML="密码输入为空";
+		}else if(fi.value!=se.value){
+			document.getElementById("tishi").innerHTML="两次密码不一样";
+		} else{
+			document.getElementById("tishi").innerHTML="模拟登录成功";
+		}
+	}
+	function cbgc(x){
+		x.style.background="yellow";
+	}
+</script>
+
+
+
+  <title>test1</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h1>test1</h1>
+  <div id="test"></div>
+  <img alt="ghost" src="images/ghost-152027_640.png">
+<form name="myForm" >
+  用户名：<input type="text" onfocus="cbgc(this)"/><br/>
+  密码： <input name="first" type="password"/><br/>
+  密码确定： <input name="seconds" type="password"/><div id="tishi"></div>
+<button type="button" onclick="ischange()">submit</button>
+</form>
+</body>
+</html>
