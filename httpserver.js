@@ -26,8 +26,8 @@ var handleRequest=function(request,response){
 		case "/" :
 			fs.readFile("./20170509/1705091.html",send);break;
 		//(request.url.match(".*images.*"))
-		case "/images/ghost-152027_640.png":
-			response.writeHead(200,{'content-Type':'application/x-png'});
+		case "/images/flower-2232185_1920.jpg":
+			response.writeHead(200,{'content-Type':'application/x-jpg'});
 			console.log("do it!");
 		//使用decode解析中文或者其他非ascii码文字
 		default: fs.readFile("./20170509"+decodeURI(request.url),send);return;;	//将文件read出来发送出去
