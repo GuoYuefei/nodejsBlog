@@ -1,0 +1,79 @@
+/* CSS Document */
+#left {
+	position: fixed;
+	top: 200px;
+	left: 500px;
+	width: 14.5%;
+	height: auto;
+	background-color: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+
+#right {
+	background-color: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+
+#wrap {
+	width: 100%;
+	height: auto;
+	min-height: 10%;
+	clear: both;
+	background-color: #F9F9F9;
+	padding-bottom: 10px;
+}
+
+#jq-content {
+	height: 100%;
+	clear: both;
+	margin-left: 175px;
+}
+
+#jqbody-menu {
+	position: Relative ;
+	top:150px;
+	left:-175px;
+	list-style: none;
+	width: 140px;
+	margin: 10px10px0px-165px;
+	float: left;
+	background-color:#e5ffcc;
+	padding: 5px;
+	border: 1px #CCCsolid;
+	text-align:center;
+}
+
+#jqbody-content {
+	float: left;
+	position:Relative;
+	top:-150px;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	font-weight: bold;
+	font-size: 150%;
+	background-color: #FFC
+}
+
+.body-wrap {
+	width: 99%;
+	margin: 015px00px;
+	padding: 15px00px10px;
+}
+
+#jqhead, #jqfoot {
+	line-height: 50px;
+	font-size: 100%;
+	padding-left: 20px;
+	font-weight: bold;
+	height: auto;
+	background-color: #CCC;
+}
+
+#jqfoot{
+	clear:both;
+}
+
+.clear {
+	clear: both; /* 清除浮动 */
+}

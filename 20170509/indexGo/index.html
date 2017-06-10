@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>xx的个人主页</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/angular.min.js"></script>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body >
+	<div id="flip">MENU</div>
+	<div id="panel" ng-controller="reList">
+		<ul>
+	   		<li class="Navi" ng-repeat="x in list"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>		
+		</ul>
+    </div>
+    
+    <p id="p1"></p>
+	<div id="main" ng-controller="mainView" ng-init="toHome()"></div>
+</body>
+</html>

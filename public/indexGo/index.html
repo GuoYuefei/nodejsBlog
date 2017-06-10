@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>xx的个人主页</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/code.css">
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<script src="./js/index.js"></script>
+	<script src="./js/code.js"></script>
+	
+
+</head>
+<body >
+	<div id="flip">MENU</div>
+	<div id="panel" ng-controller="reList">
+		<ul class="navi">
+	   		<li class="navi"  ng-repeat="x in list"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>		
+		</ul>
+    </div>
+    
+
+    <p id="p1"></p>
+	<div ng-view="">  </div>
+	
+
+
+</body>
+</html>
