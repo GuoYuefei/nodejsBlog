@@ -10,12 +10,39 @@
 
 //var myApp = angular.module('codeApp',[]);
 
+
+
+//tr调用
+function tr_m_over(x){
+	x.style.backgroundColor='#ffff66';
+}
+function tr_m_out(x){
+	x.style.backgroundColor='#d4e3e5';
+}
+
+
+
 myApp.controller("showCode",function($scope){
 
 //	$http.get('./public/code/linear_list/LinearList.h').then(function(){
 //		console.log(response.data);
 //		$scope.codes = response.data;
 //	});
+	/**
+	 * 动态css
+	 */
+//	var li = 0;
+//	$scope.lip1 = function(){
+//		li+=32;
+//		$scope.leftNavi = {
+//				'position':'absolute',
+//				'left':'100px',
+//				'top':li.toString()+'px'
+//		} ;
+//		console.log(li);
+//	}
+//	
+	
 	
 //	jQuery("#showc").load("./public/code/linear_list/LinearList.h");
 	jQuery.ajaxSetup({ 		//设置同步，这是为了让全局变量存储
@@ -28,8 +55,12 @@ myApp.controller("showCode",function($scope){
 	 * 其实很简单，哈哈哈，这里改动大，而且要动态的显示页面，而首页我人工就能完成
 	 */
 	
-	$scope.list=jq.get("/get=codeBavi",function(res){},dataType="json").responseJSON;
-	console.log(json1);
+	$scope.list=jQuery.get("/get=codeBavi",function(res){},dataType="json").responseJSON;
+	/**
+	 * 获取pat乙级的数据
+	 */
+	$scope.hubs = jQuery.get("/get=PAT1",function(res){},dataType="json").responseJSON;
+	console.log($scope.hubs);
 	
 	var temp = jQuery.get("./public/code/linear_list/LinearList.h",function(data,status){
 	});

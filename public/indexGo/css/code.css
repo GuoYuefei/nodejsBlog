@@ -1,4 +1,14 @@
 /* CSS Document */
+
+.leftNavi{
+	float:none;
+	border-bottom:1px solid #ccc;
+	font-size: 12px;
+	font-size: 1.2rem;
+	
+
+}
+
 #left {
 	position: fixed;
 	top: 200px;
@@ -34,7 +44,7 @@
 	top:150px;
 	left:-175px;
 	list-style: none;
-	width: 140px;
+	width: 280px;
 	margin: 10px10px0px-165px;
 	float: left;
 	background-color:#e5ffcc;
@@ -47,12 +57,13 @@
 	float: left;
 	position:Relative;
 	top:-150px;
+	left:120px;
 	overflow: hidden;
 	height: 100%;
-	width: 100%;
+	width: 80%;
 	font-weight: bold;
-	font-size: 150%;
-	background-color: #FFC
+	font-size: 120%;
+	background-color: #FFC;
 }
 
 .body-wrap {
@@ -77,3 +88,39 @@
 .clear {
 	clear: both; /* 清除浮动 */
 }
+
+
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:0.8em;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+
+
+
+
+
+
+
+
+

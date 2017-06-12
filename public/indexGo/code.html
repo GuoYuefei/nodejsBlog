@@ -7,6 +7,7 @@
 <script type="text/javascript" src="./js/angular.min.js"></script>
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./js/code.js"></script>
+
 <title>code</title>
 </head>
 <body>
@@ -16,15 +17,27 @@
 	<div id="drap">
 		<div id="jq-content">
 			<ul id="jqbody-menu">
-				<li ng-repeat="x in list"><a href="">{{x.field}}</a></li>
-				<li><a href="">试验</a></li>
-				<li><a href="">试验</a></li>
-				<li><a href="">试验</a></li>
-				<li><a href="">试验</a></li>
-				<li><a href="">试验</a></li>
+				<li ng-repeat="x in list" class="leftNavi"><a href="">{{x.field}}</a></li>
 			</ul>
 			<div id="jqbody-content">
 				<div class='body-wrap'>
+				<table class='hovertable'>
+						<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th>题解</th>
+							<th>备注</th>
+						</tr>
+						<tr ng-repeat='x in hubs' onmouseover="tr_m_over(this)" onmouseout="tr_m_out(this)">
+							<td>{{x.ID}}</td>
+							<td>{{x.title}}</td>
+							<td ng-repeat='y in x.language'>
+								<a href="{{x.link[y]}}" target="new">{{y}}</a>
+							</td>
+							<td>{{x.remarks}}</td>
+						</tr>
+						
+					</table>
 					<pre id="showc">
 						{{codes}}
 					</pre>

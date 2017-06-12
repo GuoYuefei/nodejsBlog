@@ -4,3 +4,21 @@ ng-app="codeApp"
 	<script type="text/javascript" src="./js/angular.min.js"></script>
 	<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="./js/code.js" ></script>
+	
+					<table>
+						<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th>题解</th>
+							<th>备注</th>
+						</tr>
+						<tr ng-repeat='x in hubs'>
+							<td>{{x.ID}}</td>
+							<td>{{x.title}}</td>
+							<td ng-repeat='y in x.language'>
+								<a href="{{c.link.{{y}} }}">{{y}}</a>
+							</td>
+							<td>{{x.remarks}}</td>
+						</tr>
+						
+					</table>

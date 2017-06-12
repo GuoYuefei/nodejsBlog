@@ -30,7 +30,8 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/code',routes.codes);
 app.get('/users', user.list);
-app.get("/get=codeBavi",routes.codeBavi)
+app.get("/get=codeBavi",routes.codeBavi);
+app.get('/get=PAT1',routes.PAT1);
 
 
 http.createServer(app).listen(app.get('port'), function(){
