@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 //jQuery("#b1").click(function(){
 //	alert("I'm running!");
 //	jQuery("#showc").text("I'm running!");
@@ -13,6 +11,9 @@
 
 
 //tr调用
+
+
+
 function tr_m_over(x){
 	x.style.backgroundColor='#ffff66';
 }
@@ -54,13 +55,23 @@ myApp.controller("showCode",function($scope){
 	 * 论述下，为什么这里的json数据来自数据库，而首页的导航来自json文件
 	 * 其实很简单，哈哈哈，这里改动大，而且要动态的显示页面，而首页我人工就能完成
 	 */
-	
 	$scope.list=jQuery.get("/get=codeBavi",function(res){},dataType="json").responseJSON;
+	
 	/**
-	 * 获取pat乙级的数据
+	 * 根据连接来获取属性
 	 */
-	$scope.hubs = jQuery.get("/get=PAT1",function(res){},dataType="json").responseJSON;
-	console.log($scope.hubs);
+	$scope.codeToLink=function(a){
+		//清楚默认事件
+		event.preventDefault();
+		$scope.hubs = jQuery.get(a.x.link,function(res){},dataType="json").responseJSON;
+//		console.log(a.x.link);
+	}
+	
+	
+	//默认页面显示
+	$scope.hubs = jQuery.get("/get=data_structure",function(res){},dataType="json").responseJSON;
+
+	
 	
 	var temp = jQuery.get("./public/code/linear_list/LinearList.h",function(data,status){
 	});
@@ -70,8 +81,6 @@ myApp.controller("showCode",function($scope){
 	});
 	$scope.codes = $scope.codes+"\r\n \n\n\n\n"+temp.responseText;
 //	console.log(temp.responseXML);
-	console.log(temp);
-//	console.log($scope.codes);
 	
 });
 

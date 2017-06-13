@@ -32,6 +32,9 @@ app.get('/code',routes.codes);
 app.get('/users', user.list);
 app.get("/get=codeBavi",routes.codeBavi);
 app.get('/get=PAT1',routes.PAT1);
+app.get('/get=data_structure',routes.data_structure);
+app.get('/get=jsStudy',routes.jsStudy);
+
 
 
 http.createServer(app).listen(app.get('port'), function(){

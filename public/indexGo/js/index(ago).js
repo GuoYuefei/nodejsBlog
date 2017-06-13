@@ -36,6 +36,7 @@ myApp.controller("reList",function($scope,$rootScope){
 	//为链接设置异步请求
 	$scope.toLink = function(a){
 		console.log(a.x);
+		//清楚默认事件
 		event.preventDefault();
 	
 		//虽然控制台有个error，但是还是能正常运行。这个error讲了，我异步得到的<!DOCTYPE html>标志
