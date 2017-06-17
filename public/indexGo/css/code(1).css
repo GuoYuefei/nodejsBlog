@@ -1,16 +1,13 @@
 /* CSS Document */
 
-
-
-
-
 .leftNavi{
 	float:none;
 	border-bottom:1px solid #ccc;
 	font-size: 12px;
 	font-size: 1.2rem;
-}
+	
 
+}
 
 #left {
 	position: fixed;
@@ -43,7 +40,13 @@
 }
 
 #jqbody-menu {
+	position: Relative ;
+	top:150px;
+	left:-175px;
 	list-style: none;
+	width: 260px;
+	margin: 10px10px0px-165px;
+	float: left;
 	background-color:#e5ffcc;
 	padding: 5px;
 	border: 1px #CCCsolid;

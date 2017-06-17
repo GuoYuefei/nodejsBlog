@@ -6,6 +6,25 @@ body{
 	height:100%;
 }
 
+.navbar-phone{
+	 background-color: #ece1cc;
+	 border-color: #e9dcc5;
+}
+
+.main-phone-bar{
+	float:none;
+	border-bottom:1px solid #ccc;
+	font-size: 1rem;
+	font-size: 1.2rem;
+}
+
+.icon-bar-my {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
 <!--导航条动画的css-->
 #panel,#flip
 {
@@ -27,14 +46,10 @@ body{
 }
 <!--导航条的li的样式，li里面主要放链接-->
 ul.navi,li.navi{
-	float:center; 
 	display:inline;
 	list-style-type:none;
-	width:100px; 
 	height:45px; 
 	background:#e5eecc; 
-	line-height:30px;
-	text-align:center; 
 	margin-right:50px; 
 
 }

@@ -2,28 +2,60 @@
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>xx的个人主页</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/code.css">
+	<link rel="stylesheet" href="./css/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/code.css"/>
     <script src="./js/angular.min.js"></script>
     <script src="./js/angular-route.min.js"></script>
 	<script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.js"></script>
 	<script src="./js/index.js"></script>
 	<script src="./js/code.js"></script>
 	
 
 </head>
-<body >
-	<div id="flip">MENU</div>
-	<div id="panel" ng-controller="reList">
-		<ul class="navi">
+<body>
+
+<!-- 在中等大小机器和大屏机器上显示 -->
+<nav  role="navigation" class="hidden-sm hidden-xs">
+<div>
+	<div id="flip">MENU
+	</div>
+	<div id="panel" class="navbar-collapse" ng-controller="reList"  >
+		<ul class="navi" >
 	   		<li class="navi"  ng-repeat="x in list"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>		
 		</ul>
     </div>
-    
+</div>
+</nav>
 
-    <p id="p1"></p>
-	<div ng-view="">  </div>
+<!-- 只在小型机和超小型机上显示  需要配套的js配合，如collapse.js or bootstrap.min.js or bootstrap.js-->
+<nav class="navbar navbar-default hidden-lg hidden-md" role="navigation">
+    <!-- navbar-phone通过css的继承性改变导航条的颜色，而不要随意的改动bootstrap -->
+    <div class="container-fluid  navbar-phone">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#home.html">xx的个人网站</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav" ng-controller="reList">
+ 			<li ng-repeat="x in list" class="main-phone-bar"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>            
+        </ul>
+    </div>
+    </div>
+</nav>
+    
+    
+	<div ng-view >  </div>
 	
 
 

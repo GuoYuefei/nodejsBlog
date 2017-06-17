@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/code.css">
 <!-- code页面的 下面的引入有木有都无关首页展示 -->
-<link rel="stylesheet" href="./css/bootstrap/bootstrap.css"/>
 <script type="text/javascript" src="./js/angular.min.js"></script>
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./js/code.js"></script>
@@ -12,14 +11,16 @@
 <title>code</title>
 </head>
 <body>
-	<div>
-		<div class="row">
-			<div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
-				<ul id="jqbody-menu" >
-					<li ng-repeat="x in list" class="leftNavi"><a ng-click="codeToLink(this)" ng-href="{{x.link}}">{{x.field}}</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-10  col-md-10 col-xs-12 col-sm-12">
+	<div id="jqhead">
+		<h2>code show time</h2>
+	</div>
+	<div id="drap">
+		<div id="jq-content">
+			<ul id="jqbody-menu">
+				<li ng-repeat="x in list" class="leftNavi"><a ng-click="codeToLink(this)" ng-href="{{x.link}}">{{x.field}}</a></li>
+			</ul>
+			<div id="jqbody-content">
+				<div class='body-wrap'>
 				<table class='hovertable'>
 						<tr>
 							<th>ID</th>
@@ -35,11 +36,13 @@
 							</td>
 							<td>{{x.remarks}}</td>
 						</tr>
+						
 					</table>
-				<pre id="showc" class="pre-scrollable col-lg-10 col-md-10 col-xs-12 col-sm-12">
-					{{codes}}
-				</pre>
+					<pre id="showc" class="pre-scrollable">
+						{{codes}}
+					</pre>
 				</div>
+			</div>
 		</div>
 	</div>
 	<!--<div id="jqfoot">Foot</div>-->
