@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.carousel-img{
+	width:960px !important
+	height:470px !important
+}
+
+.padding-3{
+	padding:3rem;
+}
+
+.padding-2{
+	padding:2rem;
+}
+
+.padding-1{
+	padding:1rem;
+}

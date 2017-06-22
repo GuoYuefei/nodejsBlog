@@ -9,6 +9,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
+
 var app = express();
 
 // all environments
@@ -21,6 +22,10 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public/indexGo')));
+
+var bodyParser = require('body-parser');
+//创建 application/x-www-form-urlencoded 编码解析
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // development only
 if ('development' == app.get('env')) {
@@ -36,6 +41,9 @@ app.get("/get=codeBavi",routes.codeBavi);
 app.get('/get=PAT1',routes.PAT1);
 app.get('/get=data_structure',routes.data_structure);
 app.get('/get=jsStudy',routes.jsStudy);
+
+
+app.post('/admin/codeInsert',urlencodedParser,routes.codeInsert);
 
 
 
