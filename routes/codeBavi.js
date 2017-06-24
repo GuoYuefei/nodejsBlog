@@ -5,7 +5,7 @@
 var myMongo = require("./../tools/myMongo.js");
 
 exports.codeBavi = function(req,res){
-	myMongo.exe("codetype",{},myMongo.selectData,function(db,result){
+	myMongo.exe("codetype",{},myMongo.selectData,function(db,err,result){
 		console.log(result);
 		res.json(result);
 		db.close();

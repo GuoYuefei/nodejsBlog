@@ -1,57 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<!-- 一下内容没用，只是为了让eclipse安静点而已 -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>xx的个人主页</title>
-	<link rel="stylesheet" href="./css/bootstrap/bootstrap.css"/>
-    <link rel="stylesheet" href="./css/bootstrap/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="./css/home.css"/>
-    <script src="./js/angular.min.js"></script>
-    <script src="./js/angular-route.min.js"></script>
-	<script src="./js/jquery-3.2.1.min.js"></script>
-    <script src="./js/bootstrap/bootstrap.min.js"></script>
-    
+<meta charset="UTF-8">
+<!-- 一下内容没用，只是为了让eclipse安静点而已 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xx的个人主页</title>
+<link rel="stylesheet" href="./css/bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="./css/bootstrap/bootstrap-theme.css" />
+<link rel="stylesheet" href="./css/home.css" />
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-route.min.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/bootstrap/bootstrap.min.js"></script>
+
 <title>myHome</title>
 </head>
 <body>
-<div class="row padding-2 visible-lg visible-md"></div>
-<div class="row padding-1 visible-sm"></div> 
-<div class="row">
-<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2">
-<div id="myCarousel" class="carousel slide myCarousel" data-ride="carousel" data-interval=4000>
-    <!-- 轮播（Carousel）指标 -->
-    <ol class="carousel-indicators">
-        <li data-target=".myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target=".myCarousel" data-slide-to="1"></li>
-        <li data-target=".myCarousel" data-slide-to="2"></li>
-    </ol>   
-    <!-- 轮播（Carousel）项目 -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="public/images/f1.jpg"  alt="First slide">
-            <div class="carousel-caption">悠闲的生活</div>
-        </div>
-        <div class="item">
-            <img src="/public/images/f2.JPG"  alt="Second slide">
-            <div class="carousel-caption">简单的工作</div>
-        </div>
-        <div class="item">
-            <img src="/public/images/f3.JPG"  alt="Third slide">
-            <div class="carousel-caption">自然的学习</div>
-        </div>
-    </div>
-    <!-- 轮播（Carousel）导航 这一部分还是用.myCAROUSEL来代替#吧。。。id开头的#和angular的路由重合了 -->
-    <a class="carousel-control left" href=".myCarousel" 
-        data-slide="prev">&lsaquo;
-    </a>
-    <a class="carousel-control right" href=".myCarousel" 
-        data-slide="next">&rsaquo;
-    </a>
-</div>
-</div>
-</div>
+	<div class="row padding-2 visible-lg visible-md"></div>
+	<div class="row padding-1 visible-sm"></div>
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2">
+			<div id="myCarousel" class="carousel slide myCarousel"
+				data-ride="carousel" data-interval=4000>
+				<!-- 轮播（Carousel）指标 -->
+				<ol class="carousel-indicators">
+					<li data-target=".myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target=".myCarousel" data-slide-to="1"></li>
+					<li data-target=".myCarousel" data-slide-to="2"></li>
+				</ol>
+				<!-- 轮播（Carousel）项目 -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="public/images/f1.jpg" alt="First slide">
+						<div class="carousel-caption">悠闲的生活</div>
+					</div>
+					<div class="item">
+						<img src="/public/images/f2.JPG" alt="Second slide">
+						<div class="carousel-caption">简单的工作</div>
+					</div>
+					<div class="item">
+						<img src="/public/images/f3.JPG" alt="Third slide">
+						<div class="carousel-caption">自然的学习</div>
+					</div>
+				</div>
+				<!-- 轮播（Carousel）导航 这一部分还是用.myCAROUSEL来代替#吧。。。id开头的#和angular的路由重合了 -->
+				<a class="carousel-control left" href=".myCarousel"
+					data-slide="prev">&lsaquo; </a> <a class="carousel-control right"
+					href=".myCarousel" data-slide="next">&rsaquo; </a>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-0">
+			<!-- 按钮触发模态框 -->
+			<button class="btn btn-primary btn-sm" data-toggle="modal"
+				data-target="#myModal">登录</button>
+			<!-- 模态框（Modal） -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">后台登录</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container">
+								<div class="row clearfix">
+									<div class="col-md-4 column">
+										<form class="form-horizontal" role="form" method="post"
+											action="/Login">
+											<div class="form-group">
+												<label for="inputUsername3" class="col-sm-3 control-label">Username:</label>
+												<div class="col-sm-9">
+													<input type="text" class="form-control" id="inputUsername"
+														name="username" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputPassword3" class="col-sm-3 control-label">Password:</label>
+												<div class="col-sm-9">
+													<input type="password" class="form-control" name="passwd"
+														id="inputPassword3" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="time" class="col-sm-3 control-label">有效期：</label> 
+												<div class="col-sm-9">
+													<select id="time" class="form-control" name="time">
+														<option value="1h">1小时</option>
+														<option value="1d">1天</option>
+														<option value="1w">1星期</option>
+														<option value="1m">1个月</option>
+													</select>
+												</div>
+											</div>
+											<div class="modal-footer">
+
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">关闭</button>
+												<button type="submit" class="btn btn-primary">Sign
+													in</button>
+											</div>
+										</form>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal -->
+			</div>
+		</div>
+	</div>
+
+
+
+
+
 </body>
 </html>

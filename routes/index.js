@@ -17,5 +17,9 @@ exports.PAT1 = require("./PAT1.js").PAT1;
 exports.data_structure = require("./data_structure").data_structure;
 exports.jsStudy = require("./jsStudy").jsStudy;
 
-
 exports.codeInsert = require("./admin/codeInsert.js").codeInsert;
+exports.admin = require("./admin/admin.js").admin;
+exports.Login = require("./admin/Login").Login;
+exports.Logout = require("./admin/Logout.js").Logout;
+//用于中间件，过滤作用
+exports.authFilter = require("./admin/authFilter.js").authFilter;

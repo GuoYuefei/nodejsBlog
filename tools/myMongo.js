@@ -21,7 +21,7 @@ exports.selectData = function(db,col,whereStr,callback){
             return;
         }
         //传入db，方便用户关闭db
-        callback(db,result);
+        callback(db,err,result);
     });
 }
 
@@ -42,7 +42,22 @@ exports.insertData = function(db,col,insertStr,callback){
         }     
         callback(db,result);
     });
-	
+}
+/**
+ * 删除mongodb中的数据
+ * db是为了向上继承db对象
+ * col 字符串量 说明要连接的集合的名字
+ * whereStr 是删选删除文档的字符串
+ * callback 回调函数用于处理数据后的动作，跳过了等待数据库服务器的响应
+ */
+exports.removeData = function(db,col,whereStr,callback){
+	var collection = db.collection(col);
+	collection.remove(whereStr,function(err,result){
+		if(err){
+			console.log("Error:"+err);
+		}
+		callback(db,err,result);			//在callback中放err，不错，可以根据判断响应客户端
+	});
 }
 
 /**

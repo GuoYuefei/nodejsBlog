@@ -5,10 +5,7 @@ var myMongo = require("./../../tools/myMongo.js");
 
 exports.codeInsert = function(req,res){
 
-	console.log(req.body.remark);
-	console.log(req.body.ID);
-	console.log(req.body.type);
-	console.log(req.body.title);
+
 	var ID = req.body.ID;
 	var title = req.body.title;
 	var types = req.body.type;
@@ -18,9 +15,13 @@ exports.codeInsert = function(req,res){
 	var remark = req.body.remark;
 	var wantInsert = [{"ID":ID,"title":title,"types":types,"language":[language],
 					"link":link,"remarks":remark}];
-	myMongo.exe("hubLinks", wantInsert, myMongo.insertData, function(db, result) {
+	myMongo.exe("hubLinks", wantInsert, myMongo.insertData, function(db,err,result) {
+		if(err){
+			res.end("err:"+err);
+			db.close();
+		}
 		console.log(result);
 		db.close();
 	});
-	res.end("ok!!!<br/>"+req.body.language);
+	res.end("ok!!!<br/>");
 }

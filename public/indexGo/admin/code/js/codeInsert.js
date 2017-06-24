@@ -5,5 +5,4 @@
  */
 adminApp.controller("codeInsert",function($scope,$rootScope){
 
-	
 });
