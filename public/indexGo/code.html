@@ -13,33 +13,38 @@
 </head>
 <body>
 	<div>
-		<div class="row">
+		<div >
 			<div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
 				<ul id="jqbody-menu" >
 					<li ng-repeat="x in list" class="leftNavi"><a ng-click="codeToLink(this)" ng-href="{{x.link}}">{{x.field}}</a></li>
 				</ul>
 			</div>
-			<div class="col-lg-10  col-md-10 col-xs-12 col-sm-12">
-				<table class='hovertable'>
+			<!--   -->
+			<div class="col-lg-10  col-md-10 col-xs-12 col-sm-12 ">
+				<table class='hovertable table'>
+					<thead>
 						<tr>
 							<th>ID</th>
 							<th>Title</th>
 							<th>代码链接</th>
 							<th>备注</th>
 						</tr>
+					</thead>
+					<tbody>
 						<tr ng-repeat='x in hubs' onmouseover="tr_m_over(this)" onmouseout="tr_m_out(this)">
 							<td>{{x.ID}}</td>
 							<td>{{x.title}}</td>
-							<td ng-repeat='y in x.language'>
-								<a ng-href="{{x.link[y]}}" target="new">{{y}}</a>
+							<td>
+								<span ng-repeat='y in x.language'>
+									<a ng-href="{{x.link[y]}}" target="new">{{y}}&nbsp;</a>
+								</span>
 							</td>
 							<td>{{x.remarks}}</td>
 						</tr>
-					</table>
-				<pre id="showc" class="pre-scrollable col-lg-10 col-md-10 col-xs-12 col-sm-12">
-					{{codes}}
-				</pre>
-				</div>
+					</tbody>
+				</table>
+		
+			</div>
 		</div>
 	</div>
 	<!--<div id="jqfoot">Foot</div>-->

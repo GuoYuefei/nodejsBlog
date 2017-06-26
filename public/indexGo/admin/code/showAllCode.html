@@ -2,9 +2,124 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<!-- code页面的 下面的引入有木有都无关首页展示 -->
+<link rel="stylesheet" href="./../../css/bootstrap/bootstrap.css" />
+<script type="text/javascript" src="./../../js/angular.min.js"></script>
+<script type="text/javascript" src="./../../js/jquery-3.2.1.min.js"></script>
+<script src="./js/showAllCode.js"></script>
+
+<title>查看code内容</title>
 </head>
 <body>
+	<form role="form" name='showWhat'>
+		<div class="form-group col-md-3">
+			<label for="name">查看内容</label> <select ng-model="sub_data"
+				class="form-control" ng-change="submit()"
+				ng-options="x.field for x in list">
+			</select>
+		</div>
+	</form>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<caption>响应式表格布局</caption>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>title</th>
+					<th>type</th>
+					<th>languages</th>
+					<th>operations</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='x in hubs'>
+					<td>{{x.ID}}</td>
+					<td>{{x.title}}</td>
+					<td>{{x.types}}</td>
+					<td ng-repeat="l in x.language"><span>{{l}}</span></td>
+					<td>
+						<div class="btn-group btn-group-sm">
+							<button type="button" class="btn btn-link" data-toggle="modal"
+								data-target="#myModal" ng-click="updataLink(x)">添加新链接</button>
+							<button type="button" class="btn btn-link dropdown-toggle"
+								data-toggle="dropdown">
+								删除 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li ng-repeat="l in x.language">
+									<button type="button" class="btn btn-link">{{l}}</button>
+								</li>
+							</ul>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class=" col-md-offset-0 ">
+		<!-- 按钮触发模态框 手机和平板不显示
+			<button class="btn btn-info btn-sm hidden-sm hidden-xs" data-toggle="modal"
+				data-target="#myModal">登录</button>
+			-->
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">添加新代码链接</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<div class="row clearfix">
+								<div class="col-md-4 column">
+									<form class="form-horizontal" role="form" method="post"
+										name="updata_link" novalidate>
+										<div class="form-group">
+											<label for="Language" class="col-sm-3 control-label">Language:</label>
+											<div class="col-xs-9 col-sm-9  col-md-9 col-lg-9">
+												<select name="language" class=" form-control input-md" ng-model="language">
+													<option value="c++">c++</option>
+													<option value="javaScript">javaScript</option>
+													<option value="JAVA">JAVA</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="link" class="col-sm-3 control-label">link:</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" name="link"
+													id="link" placeholder="对应的代码链接" ng-model="link" required />
+											</div>
+										</div>
+										<p>{{link}}</p>
+										<p>{{language}}</p>
+										<div class="modal-footer">
+
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">关闭</button>
+											<button type="button" class="btn btn-info" ng-click="up()">
+												<!-- ng-disabled="updata_link.$invalid   -->
+												添加
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+	</div>
+
 
 </body>
 </html>

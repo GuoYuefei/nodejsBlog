@@ -71,7 +71,8 @@ app.get('/Logout',routes.Logout);
 
 app.post('/admin/codeInsert',urlencodedParser,routes.codeInsert);
 app.post('/Login',urlencodedParser,routes.Login);
-
+app.post("/showAllCode/sub_data",urlencodedParser,routes.showAllCode);
+app.post("/code/updata",urlencodedParser,routes.codeUpdata);
 
 
 

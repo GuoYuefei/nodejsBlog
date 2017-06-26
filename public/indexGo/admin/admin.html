@@ -12,6 +12,7 @@
 	<script src="./../js/bootstrap/bootstrap.js"></script>
 	<script src="./js/admin.js"></script>
 	<script src="./code/js/codeInsert.js"></script>
+	<script src="./code/js/showAllCode.js"></script>
 	<title>后台管理页面</title>
 	<style type="text/css">
 		.navi-right{
@@ -50,7 +51,7 @@
                     <li><a href="#">删除旧的</a></li>
                     <li><a href="#">改变原有属性</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">查看所有</a></li>
+                    <li><a href="#showAllCode.html">查看所有</a></li>
                 </ul>
             </li>
         </ul>
@@ -60,9 +61,12 @@
     </div>
     </div>
 </nav>
-</div>
+
 
 <div ng-view></div>
+
+</div> <!-- container -->
+
 
 
 </body>

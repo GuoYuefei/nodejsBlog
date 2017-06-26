@@ -61,6 +61,28 @@ exports.removeData = function(db,col,whereStr,callback){
 }
 
 /**
+ * col ,要操作集合
+ * whereStr，在哪个记录更新
+ * updataStr，更新的语句
+ * callback，回调
+ */
+exports.updata = function(col,whereStr,updataStr,callback){
+	mongoclient.connect(dbhost,function(err,db){
+		var collection = db.collection(col);
+		collection.update(whereStr,updataStr,function(err,result){
+		      if(err)
+		        {
+		            console.log('Error:'+ err);
+		            return;
+		        } 
+		      callback(db,err,result);
+		});
+//		console.log("连接成功！！");
+	});
+}
+
+
+/**
  * col,要操作的集合
  * someStr，操作的语句，对于删除和查询是sql中where
  * whatdo,需要的操作，这是一个函数变量。。。只接受查询，删除，和插入。。不接受更新 需要从这个文件中选择操作函数

@@ -22,6 +22,8 @@ exports.codeInsert = require("./admin/codeInsert.js").codeInsert;
 exports.admin = require("./admin/admin.js").admin;
 exports.Login = require("./admin/Login").Login;
 exports.Logout = require("./admin/Logout.js").Logout;
+exports.showAllCode = require("./admin/showAllCode.js").showAllCode;
+exports.codeUpdata = require("./admin/codeUpdata.js").codeUpdata;
 
 
 //用于中间件，过滤作用
