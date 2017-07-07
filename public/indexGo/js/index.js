@@ -18,7 +18,15 @@ jq(document).ready(function(){
 
 
 //在jquery中使用angularJs部分
-var myApp = angular.module('myApp',['ngRoute']);
+var myApp = angular.module('myApp',['ngRoute','ngSanitize']);
+
+//使用安全服务的过滤器
+myApp.filter('trustHtml', function ($sce) {
+    return function (input) {
+        return $sce.trustAsHtml(input);
+    }
+});
+
 
 myApp.controller("reList",function($scope,$rootScope){
 	jq.ajaxSetup({ 		//设置同步，这是为了让全局变量存储
@@ -27,7 +35,7 @@ myApp.controller("reList",function($scope,$rootScope){
 	//返回的是json对象，里面有一个responseJSON的属性里面放了我们读取的json数据
 	json1=jq.get("./json/navigationList.json",function(res){},dataType="json");
 	
-	console.log("JSON:"+JSON.stringify(json1));
+//	console.log("JSON:"+JSON.stringify(json1));
 	$rootScope.list = json1.responseJSON.naviList;			//这个存储了导航条的json对象
 
 
@@ -39,7 +47,7 @@ myApp.config(['$routeProvider',function($routeProvider){
     .when('/home.html',{templateUrl:'./home.html'})
     .when('/code.html',{templateUrl:'./code.html',controller:"showCode"})
     .when('/about.html',{templateUrl:'./about.html'})
-    .when('/mood.html',{templateUrl:'./mood.html'})
+    .when('/mood.html',{templateUrl:'./mood.html',controller:"mood"})
     .otherwise({redirectTo:'/home.html'});
 }]);
 

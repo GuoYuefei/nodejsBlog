@@ -28,7 +28,7 @@ adminApp.controller("showAllCode",function($scope,$rootScope,$http){
 //		console.log(o);
 	}
 	
-	//在改变下拉选项后一直刷新数据
+	//在改变下拉选项后一直刷新数据,每次选择下拉菜单改变一次
 	$scope.submit = function(){
 		$http.post("/showAllCode/sub_data",$scope.sub_data).then(function(res){
 			$scope.hubs = res.data;

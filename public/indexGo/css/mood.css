@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+<!-- 通过div给其中的table加样式-->
+.div-markdown table{
+	border-collapse: collapse !important;
+	text-align: center !important;
+} 
+
+.div-markdown table tr {
+    background-color:#ffffff;
+}
+
+.div-markdown table th {
+    background-color:#efefef;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+.div-markdown table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+.div-markdown  table  tr:hover{
+	background-color: #ffffbd;
+}
+
+

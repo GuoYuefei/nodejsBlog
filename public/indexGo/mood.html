@@ -2,11 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/bootstrap/bootstrap.css"/>
+<link rel="stylesheet" href="css/mood.css"/>
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-route.min.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/bootstrap/bootstrap.js"></script>
+<script src="http://cdn.bootcss.com/showdown/1.7.1/showdown.js"></script>
+
 <title>Insert title here</title>
 </head>
-<body>
+<body class="container" >
 
-<h1>我是mood页面</h1>
-
+<div class="row">
+	<div class=" col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+		<!-- 使用这个自定义的安全过滤器才能显示出html，不然只能显示html代码 -->
+		<div class="div-markdown" ng-bind-html="test | trustHtml"></div>
+	</div>
+</div>
 </body>
 </html>

@@ -22,7 +22,7 @@
 
 	<div class="table-responsive">
 		<table class="table table-striped">
-			<caption>响应式表格布局</caption>
+			<caption>代码管理</caption>
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -37,7 +37,7 @@
 					<td>{{x.ID}}</td>
 					<td>{{x.title}}</td>
 					<td>{{x.types}}</td>
-					<td ng-repeat="l in x.language"><span>{{l}}</span></td>
+					<td ><span ng-repeat="l in x.language">{{l}}</span></td>
 					<td>
 						<div class="btn-group btn-group-sm">
 							<button type="button" class="btn btn-link" data-toggle="modal"
@@ -96,8 +96,6 @@
 													id="link" placeholder="对应的代码链接" ng-model="link" required />
 											</div>
 										</div>
-										<p>{{link}}</p>
-										<p>{{language}}</p>
 										<div class="modal-footer">
 
 											<button type="button" class="btn btn-default"
