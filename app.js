@@ -30,17 +30,17 @@ app.use(session({
 	saveUninitialized:true,
 	//用数据库存储，降低响应速度，但是服务器重启session还在，并且减少内存开支
 	'store':new MongoStore({
-		'collection':'sessions',// 存在哪个集合里，默认为sessions	
 		'url':'mongodb://127.0.0.1/indexGo',
+		'collection':'sessions',// 存在哪个集合里，默认为sessions	
 		'ttl':60*60*24*30, // session过期时间 设为30天
 		'autoRemove': 'native',// mongo2.2+自动移除过期的session，disable为禁用
-		'autoRemoveInterval': 120, //移除过期session间隔时间,默认为10分钟
-		'touchAfter': 24 * 3600 //同步session间隔，默认每次请求都会同步到数据库
+		'autoRemoveInterval': 120, //移除过期session间隔时间,默认为120分钟
+		'touchAfter': 10 //同步session间隔，默认每次请求都会同步到数据库
 	})
 })
 );
-app.use("/admin/", routes.authFilter);		//放在路由之前
 app.use(express.logger('dev'));
+app.use("/admin/", routes.authFilter);		//放在路由之前
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public/indexGo')));

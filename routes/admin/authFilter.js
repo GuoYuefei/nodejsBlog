@@ -12,6 +12,7 @@ exports.authFilter = function(req,res,next){
 		sessionStr = req.session.user.randomStr;
 		cookieStr = req.cookies.flag;
 	}catch(e){									//如果username不存在就退出
+//		console.log(e);
 		res.set('Content-Type', 'text/html');
 		res.end("Please login first!");
 		return;

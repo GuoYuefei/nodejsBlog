@@ -22,7 +22,11 @@ adminApp.controller("showAllCode",function($scope,$rootScope,$http){
 		var o = {"id":$scope.up_what._id,"language":$scope.language,"link":$scope.link}
 		$http.post("/code/addlanguage",o).then(function(res){
 //			console.log(res.data);
-			alert("更新成功！");
+			if(res.data.result==0){
+				alert("更新失败！");
+			}else{
+				alert("更新成功！");
+			}
 		},function(res){
 			alert("更新失败！");
 		});
@@ -65,7 +69,12 @@ adminApp.controller("showAllCode",function($scope,$rootScope,$http){
 		var o = {"id":x._id,"language":l}
 //		console.log(x," language ",l);
 		$http.post("/code/delLink",o).then(function(res){
-			alert("删除"+l+"成功！");
+			console.log(res);
+			if(res.data.result==0){
+				alert("删除"+l+"失败！");
+			}else{
+				alert("删除"+l+"成功！");
+			}
 		},function(res){
 			alert("删除"+l+"失败！");
 		});

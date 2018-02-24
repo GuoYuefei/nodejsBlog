@@ -3,9 +3,8 @@
  */
 var mongoclient = require("mongodb").MongoClient;
 var dbhost = 'mongodb://localhost:27017/indexGo';
+
 exports.hubLinks = "hubLinks";
-
-
 /**
  * 向mongo查询数据
  * db，是为了向上继承数据。。。
@@ -14,17 +13,17 @@ exports.hubLinks = "hubLinks";
  * callback 是回调函数用于处理数据，那么在查询的过程服务器就不用等待了
  */
 exports.selectData = function(db,col,whereStr,callback){
-    var collection = db.collection(col);
-
-    collection.find(whereStr).toArray(function(err,result){
-        if(err){
-            console.log("Error:"+err);
+	var collection = db.collection(col);
+	
+	collection.find(whereStr).toArray(function(err,result){
+		if(err){
+			console.log("Error:"+err);
 //            console.log(result);
-            return;
-        }
-        //传入db，方便用户关闭db
-        callback(db,err,result);
-    });
+			return;
+		}
+		//传入db，方便用户关闭db
+		callback(db,err,result);
+	});
 }
 
 /**
@@ -37,13 +36,13 @@ exports.selectData = function(db,col,whereStr,callback){
 exports.insertData = function(db,col,insertStr,callback){
 	var collection = db.collection(col);
 	collection.insert(insertStr, function(err, result) { 
-        if(err)
-        {
-            console.log('Error:'+ err);
-            return;
-        }     
-        callback(db,result);
-    });
+		if(err)
+		{
+			console.log('Error:'+ err);
+			return;
+		}     
+		callback(db,result);
+	});
 }
 /**
  * 删除mongodb中的数据
@@ -73,12 +72,12 @@ exports.updata = function(col,whereStr,updataStr,callback){
 	mongoclient.connect(dbhost,function(err,db){
 		var collection = db.collection(col);
 		collection.update(whereStr,updataStr,function(err,result){
-		      if(err)
-		        {
-		            console.log('Error:'+ err);
-		            return;
-		        } 
-		      callback(db,err,result);
+			if(err)
+			{
+				console.log('Error:'+ err);
+				return;
+			} 
+			callback(db,err,result);
 		});
 //		console.log("连接成功！！");
 	});
@@ -98,3 +97,5 @@ exports.exe = function(col,someStr,whatdo,thendo){
 		whatdo(db,col,someStr,thendo);
 	});
 }
+
+
