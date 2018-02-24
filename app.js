@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
+  , https = require('https')
   , path = require('path')
   , cookie = require('cookie-parser')
   , session = require('express-session')
@@ -15,7 +16,8 @@ var express = require('express')
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('httpport', process.env.PORT || 80);
+app.set('httpsport',443);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon("./favicon.ico"));
@@ -32,18 +34,18 @@ app.use(session({
 		'url':'mongodb://127.0.0.1/indexGo',
 		'ttl':60*60*24*30, // session过期时间 设为30天
 		'autoRemove': 'native',// mongo2.2+自动移除过期的session，disable为禁用
-		'autoRemoveInterval': 10, //移除过期session间隔时间,默认为10分钟
+		'autoRemoveInterval': 120, //移除过期session间隔时间,默认为10分钟
 		'touchAfter': 24 * 3600 //同步session间隔，默认每次请求都会同步到数据库
 	})
 })
 );
 app.use("/admin/", routes.authFilter);		//放在路由之前
+app.use(express.logger('dev'));
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public/indexGo')));
 
 
-app.use(express.logger('dev'));
 var bodyParser = require('body-parser');
 //创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -72,10 +74,14 @@ app.get('/Logout',routes.Logout);
 app.post('/admin/codeInsert',urlencodedParser,routes.codeInsert);
 app.post('/Login',urlencodedParser,routes.Login);
 app.post("/showAllCode/sub_data",urlencodedParser,routes.showAllCode);
-app.post("/code/updata",urlencodedParser,routes.codeUpdata);
+app.post("/code/addlanguage",urlencodedParser,routes.addlanguage);
+app.post("/code/delLink",urlencodedParser,routes.delLink);
 
 
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('httpport'), function(){
+  console.log('Express http server listening on port ' + app.get('httpport'));
 });
+//https.createServer(options, app).listen(app.get('httpsport'),function(){
+//	console.log('Express https server listening on port' + app.get('httpsport'));
+//});

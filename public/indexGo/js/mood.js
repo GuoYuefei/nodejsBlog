@@ -19,7 +19,8 @@ myApp.controller("mood",function($scope,$http,$sce){
 //	converter.setOption('tables',true);
 //	converter.setOption('parseImgDimensions', true);
 	$http.get("./public/mood/mongodb学习笔记.md").then(function(res){
-		$scope.test = converter.makeHtml(res.data);
+		$scope.test = new Array();
+		$scope.test[0] = converter.makeHtml(res.data);
 	});
 	
 	

@@ -13,13 +13,14 @@ adminApp.controller("showAllCode",function($scope,$rootScope,$http){
 //	$scope.list=jQuery.get("/get=codeBavi",function(res){},dataType="json").responseJSON;
 	
 	$scope.updataLink = function(x){
-		$scope.up_what = x;				//按模态框按钮时将该处按钮指代的需要更新的记录标记出来
+		//按模态框按钮时将该处按钮指代的需要更新的记录标记出来，进行插入，删除等操作前必须用这个函数选定
+		$scope.up_what = x;				
 //		console.log(x);
 	}
 	
-	$scope.up = function(){
+	$scope.addlanguage = function(){
 		var o = {"id":$scope.up_what._id,"language":$scope.language,"link":$scope.link}
-		$http.post("/code/updata",o).then(function(res){
+		$http.post("/code/addlanguage",o).then(function(res){
 //			console.log(res.data);
 			alert("更新成功！");
 		},function(res){
@@ -43,6 +44,7 @@ adminApp.controller("showAllCode",function($scope,$rootScope,$http){
 	 * 还是用angular来通讯，不用设置同步
 	 */
 	$http.get("/get=codeBavi").then(function(res){
+		//在得到的数据里加入这样的数据，然后倒置下
 		res.data.push({'field':"查看全部",'link':'/get=allCode'});
 		res.data.reverse();
 //		console.log(res.data);
@@ -53,6 +55,22 @@ adminApp.controller("showAllCode",function($scope,$rootScope,$http){
 		return;
 	});
 	
+	/**
+	 * 删除link用
+	 * x是对象，l是对象中language数组里的某个即将被删除语言
+	 */
+	$scope.delLink = function(x,l){
+		console.log("我被调用了");
+		//id指出我要修改的文档，language指出要删除的语言
+		var o = {"id":x._id,"language":l}
+//		console.log(x," language ",l);
+		$http.post("/code/delLink",o).then(function(res){
+			alert("删除"+l+"成功！");
+		},function(res){
+			alert("删除"+l+"失败！");
+		});
+		
+	}
 
 	
 	

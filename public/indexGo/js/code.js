@@ -15,10 +15,10 @@
 
 
 function tr_m_over(x){
-	x.style.backgroundColor='#ffff66';
+	x.style.backgroundColor='#f6f6f6';
 }
 function tr_m_out(x){
-	x.style.backgroundColor='#d4e3e5';
+	x.style.backgroundColor='#ffffff';
 }
 
 

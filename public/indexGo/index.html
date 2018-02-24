@@ -39,7 +39,7 @@
 
 <!-- 在中等大小机器和大屏机器上显示 -->
 <nav  role="navigation" class="hidden-sm hidden-xs">
-<div>
+<div id="navi-mydef">
 	<div id="flip">MENU
 	</div>
 	<div id="panel" class="navbar-collapse" ng-controller="reList">
@@ -47,7 +47,7 @@
 	   		<li class="navi"  ng-repeat="x in list"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>		
 			
 			<li class="navi" style="float:right"><!-- 按钮触发模态框 手机和平板不显示-->
-			<button class="btn btn-success btn-md " data-toggle="modal"
+			<button class="btn btn-warning btn-md " data-toggle="modal"
 				data-target="#myModal">Sign In</button></li>
 		</ul>
     </div>

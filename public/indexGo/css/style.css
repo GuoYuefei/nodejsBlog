@@ -41,7 +41,7 @@ body{
 	padding:5px;
 	text-align:center;
 	color:#40224D;
-	background-color:#e5eecc;
+	background-color:#e9cea7;
 	border:solid 1px #c3c3c3;
 }
 #panel
@@ -49,7 +49,7 @@ body{
 	padding:50px;
 	display:none;
 	text-align:center;
-	background-color:#e5eecc;
+	background-color:#e9cea7;
 	border:solid 1px #c3c3c3;
 
 
@@ -59,7 +59,7 @@ ul.navi,li.navi{
 	display:inline;
 	list-style-type:none;
 	height:45px; 
-	background:#e5eecc; 
+	background:#e9cea7; 
 	margin-right:50px; 
 
 }

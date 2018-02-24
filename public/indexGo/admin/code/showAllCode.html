@@ -41,14 +41,14 @@
 					<td>
 						<div class="btn-group btn-group-sm">
 							<button type="button" class="btn btn-link" data-toggle="modal"
-								data-target="#myModal" ng-click="updataLink(x)">添加新链接</button>
+								data-target="#newLinkModal" ng-click="updataLink(x)">添加新链接</button>
 							<button type="button" class="btn btn-link dropdown-toggle"
 								data-toggle="dropdown">
 								删除 <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
 								<li ng-repeat="l in x.language">
-									<button type="button" class="btn btn-link">{{l}}</button>
+									<button type="button" class="btn btn-link" ng-click="delLink(x,l)">{{l}}</button>
 								</li>
 							</ul>
 						</div>
@@ -57,6 +57,7 @@
 			</tbody>
 		</table>
 	</div>
+	
 
 	<div class=" col-md-offset-0 ">
 		<!-- 按钮触发模态框 手机和平板不显示
@@ -64,7 +65,7 @@
 				data-target="#myModal">登录</button>
 			-->
 		<!-- 模态框（Modal） -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		<div class="modal fade" id="newLinkModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -77,11 +78,12 @@
 						<div class="container">
 							<div class="row clearfix">
 								<div class="col-md-4 column">
-									<form class="form-horizontal" role="form" method="post"
-										name="updata_link" novalidate>
+									<form class="form-horizontal" role="form" method="post" action=""
+										name="addlg" novalidate>
 										<div class="form-group">
 											<label for="Language" class="col-sm-3 control-label">Language:</label>
 											<div class="col-xs-9 col-sm-9  col-md-9 col-lg-9">
+											<!-- 这些value将来都要从数据库里找的，而不是放在代码里 -->
 												<select name="language" class=" form-control input-md" ng-model="language">
 													<option value="c++">c++</option>
 													<option value="javaScript">javaScript</option>
@@ -100,8 +102,9 @@
 
 											<button type="button" class="btn btn-default"
 												data-dismiss="modal">关闭</button>
-											<button type="button" class="btn btn-info" ng-click="up()">
-												<!-- ng-disabled="updata_link.$invalid   -->
+											<button type="button" class="btn btn-info" ng-disabled="addlg.$invalid"
+											ng-click="addlanguage()">
+												<!--    -->
 												添加
 											</button>
 										</div>

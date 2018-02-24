@@ -9,8 +9,10 @@ jq(document).ready(function(){
 	//导航的动画
 	jq("#flip").click(function(){
 		jq("#panel").slideToggle("slow");	//slideDown()  slideUp()  你懂的这两个函数是干嘛的，只演示Toggle的那个
-	});		
+	});	
+	
 
+	
 
 });
 

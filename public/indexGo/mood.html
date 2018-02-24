@@ -17,9 +17,11 @@
 <body class="container" >
 
 <div class="row">
-	<div class=" col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+	<div class=" col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2" ng-repeat="x in test">
+	<div id="myAlert" class="alert alert-warning">
 		<!-- 使用这个自定义的安全过滤器才能显示出html，不然只能显示html代码 -->
-		<div class="div-markdown" ng-bind-html="test | trustHtml"></div>
+		<div class="div-markdown" ng-bind-html="x | trustHtml"></div>
+	</div>
 	</div>
 </div>
 </body>

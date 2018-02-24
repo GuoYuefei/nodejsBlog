@@ -23,7 +23,8 @@ exports.admin = require("./admin/admin.js").admin;
 exports.Login = require("./admin/Login").Login;
 exports.Logout = require("./admin/Logout.js").Logout;
 exports.showAllCode = require("./admin/showAllCode.js").showAllCode;
-exports.codeUpdata = require("./admin/codeUpdata.js").codeUpdata;
+exports.addlanguage = require("./admin/codeUpdata.js").addlanguage;
+exports.delLink = require("./admin/codeUpdata.js").delLink;
 
 
 //用于中间件，过滤作用

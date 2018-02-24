@@ -44,7 +44,7 @@
 
 #jqbody-menu {
 	list-style: none;
-	background-color:#e5ffcc;
+	background-color:#f0ddc1;
 	padding: 5px;
 	border: 1px #CCCsolid;
 	text-align:center;
@@ -96,20 +96,20 @@ table.hovertable {
 	border-collapse: collapse;
 }
 table.hovertable th {
-	background-color:#c3dde0;
+	background-color:#f9f9f9;
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
-	border-color: #a9c6c9;
+	border-color: #c0c0c0;
 }
 table.hovertable tr {
-	background-color:#d4e3e5;
+	background-color:#ffffff;
 }
 table.hovertable td {
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
-	border-color: #a9c6c9;
+	border-color: #c0c0c0;
 }
 
 

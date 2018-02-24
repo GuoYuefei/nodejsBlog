@@ -3,6 +3,7 @@
  */
 var mongoclient = require("mongodb").MongoClient;
 var dbhost = 'mongodb://localhost:27017/indexGo';
+exports.hubLinks = "hubLinks";
 
 
 /**
@@ -18,6 +19,7 @@ exports.selectData = function(db,col,whereStr,callback){
     collection.find(whereStr).toArray(function(err,result){
         if(err){
             console.log("Error:"+err);
+//            console.log(result);
             return;
         }
         //传入db，方便用户关闭db
@@ -65,6 +67,7 @@ exports.removeData = function(db,col,whereStr,callback){
  * whereStr，在哪个记录更新
  * updataStr，更新的语句
  * callback，回调
+ * 因为这里需要两个str，所以和其他三个函数的接口不同，故不可以使用exe
  */
 exports.updata = function(col,whereStr,updataStr,callback){
 	mongoclient.connect(dbhost,function(err,db){
@@ -83,6 +86,7 @@ exports.updata = function(col,whereStr,updataStr,callback){
 
 
 /**
+ * 将查询、删除、插入做成同意接口函数
  * col,要操作的集合
  * someStr，操作的语句，对于删除和查询是sql中where
  * whatdo,需要的操作，这是一个函数变量。。。只接受查询，删除，和插入。。不接受更新 需要从这个文件中选择操作函数
