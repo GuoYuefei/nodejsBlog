@@ -5,9 +5,10 @@
 var myMongo = require("./../tools/myMongo.js");
 
 exports.codeBavi = function(req,res){
-	console.log(myMongo);
+//	console.log(myMongo);
 	myMongo.exe("codetype",{},myMongo.selectData,function(db,err,result){
-		console.log(result);
+//		console.log("codetype");
+//		console.log(result);
 		res.json(result);
 		db.close();
 	});

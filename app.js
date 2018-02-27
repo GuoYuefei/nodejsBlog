@@ -61,6 +61,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/code',routes.codes);
+app.get("/public/mongoDB",routes.mongoText);	//用于获取mongoDB页面的文章
 app.get('/admin/admin.html',routes.admin);
 
 app.get('/users', user.list);
@@ -81,6 +82,10 @@ app.post("/code/delLink",urlencodedParser,routes.delLink);
 
 http.createServer(app).listen(app.get('httpport'), function(){
   console.log('Express http server listening on port ' + app.get('httpport'));
+});
+
+http.createServer(app).listen(3000, function(){
+	  console.log('Express http server listening on port 3000'  );
 });
 //https.createServer(options, app).listen(app.get('httpsport'),function(){
 //	console.log('Express https server listening on port' + app.get('httpsport'));

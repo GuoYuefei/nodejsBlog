@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/bootstrap/bootstrap.css"/>
+<link rel="stylesheet" href="./css/mongoDB.css"/>
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-route.min.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/bootstrap/bootstrap.js"></script>
+<script src="http://cdn.bootcss.com/showdown/1.7.1/showdown.js"></script>
+<script src="./js/mongoDB.js"></script>
+
+
+
+<title>Insert title here</title>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+<div class="container">
+
+<div class="row">
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   ng-click="gotoAnchor('collapseOne')">
+					点击我进行展开，再次点击我进行折叠。第 1 部分
+				</a>
+			</h4>
+		</div>
+		<div id="collapseOne" class="panel-collapse collapse in">
+			<div class="panel-body">
+				Nihil anim keffiyeh helvetica, craft beer labore wes anderson 
+				cred nesciunt sapiente ea proident. Ad vegan excepteur butcher 
+				vice lomo.
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   ng-click="gotoAnchor('collapseTwo')">
+					点击我进行展开，再次点击我进行折叠。第 2 部分
+				</a>
+			</h4>
+		</div>
+		<div id="collapseTwo" class="panel-collapse collapse">
+			<div class="panel-body">
+				Nihil anim keffiyeh helvetica, craft beer labore wes anderson 
+				cred nesciunt sapiente ea proident. Ad vegan excepteur butcher 
+				vice lomo.
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseThree">
+					点击我进行展开，再次点击我进行折叠。第 3 部分
+				</a>
+			</h4>
+		</div>
+		<div id="collapseThree" class="panel-collapse collapse">
+			<div class="panel-body">
+				Nihil anim keffiyeh helvetica, craft beer labore wes anderson 
+				cred nesciunt sapiente ea proident. Ad vegan excepteur butcher 
+				vice lomo.
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- 内容 -->
+	<div class=" col-md-8 col-lg-8 ">
+		<div ng-repeat="x in test" class="tab-content alert alert-warning " data-spy="scroll" id="{{x.id}}">
+				<!-- 使用这个自定义的安全过滤器才能显示出html，不然只能显示html代码 -->
+				<div class="div-markdown"  ng-bind-html="x.content | trustHtml"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+</body>
+</html>

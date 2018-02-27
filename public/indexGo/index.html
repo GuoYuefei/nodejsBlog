@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css"/>
     <link rel="stylesheet" href="./css/code.css"/>
     <link rel="stylesheet" href="./css/home.css"/>
-    <link rel="stylesheet" href="css/mood.css"/>
+    <link rel="stylesheet" href="./css/mongoDB.css"/>
     <script src="./js/angular.min.js"></script>
     <script src="./js/angular-route.min.js"></script>
     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular-sanitize.js"></script>
@@ -18,7 +18,7 @@
     <script src="http://cdn.bootcss.com/showdown/1.7.1/showdown.js"></script>
 	<script src="./js/index.js"></script>
 	<script src="./js/code.js"></script>
-	<script src="./js/mood.js"></script>
+	<script src="./js/mongoDB.js"></script>
 	<style type="text/css">
 		.navbar-my{
 			position:relative;
@@ -42,9 +42,9 @@
 <div id="navi-mydef">
 	<div id="flip">MENU
 	</div>
-	<div id="panel" class="navbar-collapse" ng-controller="reList">
+	<div id="panel" class="navbar-collapse " ng-controller="reList">
 		<ul class="navi" >
-	   		<li class="navi"  ng-repeat="x in list"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>		
+	   		<li class="navi Glow"  ng-repeat="x in list"><a ng-click="toLink(this)" href={{x.link}} id={{x.name}}>{{x.name}}</a></li>		
 			
 			<li class="navi" style="float:right"><!-- 按钮触发模态框 手机和平板不显示-->
 			<button class="btn btn-warning btn-md " data-toggle="modal"

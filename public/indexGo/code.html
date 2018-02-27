@@ -16,7 +16,7 @@
 		<div >
 			<div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
 				<ul id="jqbody-menu" >
-					<li ng-repeat="x in list" class="leftNavi"><a ng-click="codeToLink(this)" ng-href="{{x.link}}">{{x.field}}</a></li>
+					<li ng-repeat="x in list" class="leftNavi Glow"><a ng-click="codeToLink(this)" ng-href="{{x.link}}">{{x.field}}</a></li>
 				</ul>
 			</div>
 			<!--   -->
@@ -35,7 +35,7 @@
 							<td>{{x.ID}}</td>
 							<td>{{x.title}}</td>
 							<td>
-								<span ng-repeat='y in x.language'>
+								<span ng-repeat='y in x.language' class="Glow">
 									<a ng-href="{{x.link[y]}}" target="new">{{y}}&nbsp;</a>
 								</span>
 							</td>

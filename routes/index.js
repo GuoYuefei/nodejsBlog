@@ -10,6 +10,8 @@ exports.index = function(req, res){
 
 exports.codes = require("./codes.js").codes;
 
+exports.mongoText = require("./mongoLearn.js").mongoText;
+
 exports.codeBavi = require("./codeBavi.js").codeBavi;
 
 

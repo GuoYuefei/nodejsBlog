@@ -70,14 +70,15 @@ ul.navi,li.navi{
 	width:70%;
 	background-color:#b0e0e6;
 }
-a:link,a:visited{
+
+.Glow a:link,.Glow a:visited{
 	font-size:1.2em;
 	text-decoration:none;
 	text-shadow: 1px 1px #ffff00;
 	color:#000000;
 }
 
-a:HOVER {
+.Glow a:HOVER {
 	background-color: #b0e0e6;
 }
 
