@@ -20,7 +20,7 @@ jq(document).ready(function(){
 
 
 //在jquery中使用angularJs部分
-var myApp = angular.module('myApp',['ngRoute','ngSanitize']);
+var myApp = angular.module('myApp',['ngRoute','ngSanitize','ui.bootstrap']);
 
 //使用安全服务的过滤器
 myApp.filter('trustHtml', function ($sce) {
