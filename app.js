@@ -9,23 +9,29 @@ var express = require('express')
   , http = require('http')
   , https = require('https')
   , path = require('path')
+  , morgan = require('morgan')
+  , methodOverride = require('method-override')
+  , errorHandler = require('errorhandler')
+  , favicon = require('serve-favicon')
   , cookie = require('cookie-parser')
   , session = require('express-session')
   , MongoStore  = require('connect-mongo')(session)
-  , bodyParser = require('body-parser')
-  , multipart = require('connect-multiparty');
+  , multer  = require('multer')
+  , bodyParser = require('body-parser');
 var app = express();
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-var multipartMiddleware = multipart();
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
+var upload = multer();
 
 // all environments
 app.set('httpport', process.env.PORT || 80);
 app.set('httpsport',443);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon("./favicon.ico"));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
+app.use(morgan('combined'));
+app.use(favicon(path.join(__dirname,'public','favicon.ico')));
+app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride());
 app.use(cookie('WBLOG'));			//需要在router和static之前
 app.use(session({
 	'secret':'WBLOG',
@@ -42,22 +48,17 @@ app.use(session({
 	})
 })
 );
-app.use(express.logger('dev'));
 app.use("/admin/", routes.authFilter);		//放在路由之前
 
-app.use(app.router);
+//app.use(app.router);  3版本
 app.use(express.static(path.join(__dirname, 'public/indexGo')));
 
 //创建 application/x-www-form-urlencoded 编码解析
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+  app.use(errorHandler());
 }
-
-
-
-
 
 
 
@@ -80,7 +81,7 @@ app.post("/showAllCode/sub_data",urlencodedParser,routes.showAllCode);
 app.post("/code/addlanguage",urlencodedParser,routes.addlanguage);
 app.post("/code/delLink",urlencodedParser,routes.delLink);
 //bodyParser用于处理文件
-app.post("/admin/uploadDBText",urlencodedParser,routes.getDBText);
+app.post("/admin/uploadDBText",upload.single('DBText'),routes.getDBText);
 
 
 
