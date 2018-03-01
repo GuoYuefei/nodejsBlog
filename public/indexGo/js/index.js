@@ -49,7 +49,7 @@ myApp.config(['$routeProvider',function($routeProvider){
     .when('/home.html',{templateUrl:'./home.html'})
     .when('/code.html',{templateUrl:'./code.html',controller:"showCode"})
     .when('/about.html',{templateUrl:'./about.html'})
-    .when('/mongoDB.html',{templateUrl:'./mongoDB.html',controller:"mongoDB"})
+    .when('/database.html',{templateUrl:'./database.html',controller:"database"})
     .otherwise({redirectTo:'home.html'});
 }]);
 

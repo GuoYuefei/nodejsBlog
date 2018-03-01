@@ -11,7 +11,7 @@
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/bootstrap/bootstrap.js"></script>
 <script src="http://cdn.bootcss.com/showdown/1.7.1/showdown.js"></script>
-<script src="./js/mongoDB.js"></script>
+<script src="./js/databases.js"></script>
 <script src="./js/ui-bootstrap-tpls-1.3.3.min.js"></script>
 
 
@@ -31,7 +31,7 @@
 	</div>
 	<uib-accordion close-others="oneAtATime">
 		<!-- 需要用ui-bootstrap中定义的class标签 -->
-		 <uib-accordion-group panel-class="panel-warning" ng-repeat="x in test" heading="{{x.id}}">
+		 <uib-accordion-group panel-class="panel-warning" ng-repeat="x in test" heading="{{x.title}}">
       		<!-- 使用这个自定义的安全过滤器才能显示出html，不然只能显示html代码 -->
 			<div class="div-markdown  alert alert-warning"  ng-bind-html="x.content | trustHtml"></div>
     	</uib-accordion-group>

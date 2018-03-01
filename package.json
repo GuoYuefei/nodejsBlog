@@ -8,7 +8,10 @@
   "dependencies": {
     "basic-auth": "^1.1.0",
     "body-parser": "^1.17.2",
+    "connect-multiparty": "^2.1.0",
     "express": "3.2.6",
-    "jade": "*"
+    "formidable": "^1.1.1",
+    "jade": "*",
+    "multer": "^1.3.0"
   }
 }

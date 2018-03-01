@@ -10,7 +10,7 @@ exports.index = function(req, res){
 
 exports.codes = require("./codes.js").codes;
 
-exports.mongoText = require("./mongoLearn.js").mongoText;
+exports.sendDBLearnText = require("./databases/databasesLearn.js").sendText;
 
 exports.codeBavi = require("./codeBavi.js").codeBavi;
 
@@ -27,6 +27,7 @@ exports.Logout = require("./admin/Logout.js").Logout;
 exports.showAllCode = require("./admin/showAllCode.js").showAllCode;
 exports.addlanguage = require("./admin/codeUpdata.js").addlanguage;
 exports.delLink = require("./admin/codeUpdata.js").delLink;
+exports.getDBText = require("./admin/databases/updataDBText").getDBText;
 
 
 //用于中间件，过滤作用

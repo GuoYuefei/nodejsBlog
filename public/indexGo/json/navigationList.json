@@ -1,12 +1,11 @@
 
 {
-	
 	"comment" : "这个是导航条显示的json数据",
 	"naviList":[
 		{"name" : "Home" , "link" : "#home.html"},
 		{"name" : "About" , "link" : "#about.html"},
 		{"name" : "Code" , "link" : "#code.html"},
-		{"name" : "mongoDB" , "link" : "#mongoDB.html"}
+		{"name" : "Database" , "link" : "#database.html"}
 	]
 
 }

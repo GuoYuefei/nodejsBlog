@@ -11,9 +11,12 @@ var express = require('express')
   , path = require('path')
   , cookie = require('cookie-parser')
   , session = require('express-session')
-  , MongoStore  = require('connect-mongo')(session);
-
+  , MongoStore  = require('connect-mongo')(session)
+  , bodyParser = require('body-parser')
+  , multipart = require('connect-multiparty');
 var app = express();
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var multipartMiddleware = multipart();
 
 // all environments
 app.set('httpport', process.env.PORT || 80);
@@ -45,10 +48,7 @@ app.use("/admin/", routes.authFilter);		//放在路由之前
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public/indexGo')));
 
-
-var bodyParser = require('body-parser');
 //创建 application/x-www-form-urlencoded 编码解析
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // development only
 if ('development' == app.get('env')) {
@@ -59,9 +59,11 @@ if ('development' == app.get('env')) {
 
 
 
+
+
 app.get('/', routes.index);
 app.get('/code',routes.codes);
-app.get("/public/mongoDB",routes.mongoText);	//用于获取mongoDB页面的文章
+app.get("/public/databases",routes.sendDBLearnText);	//用于获取mongoDB页面的文章
 app.get('/admin/admin.html',routes.admin);
 
 app.get('/users', user.list);
@@ -77,6 +79,8 @@ app.post('/Login',urlencodedParser,routes.Login);
 app.post("/showAllCode/sub_data",urlencodedParser,routes.showAllCode);
 app.post("/code/addlanguage",urlencodedParser,routes.addlanguage);
 app.post("/code/delLink",urlencodedParser,routes.delLink);
+//bodyParser用于处理文件
+app.post("/admin/uploadDBText",urlencodedParser,routes.getDBText);
 
 
 
@@ -84,9 +88,9 @@ http.createServer(app).listen(app.get('httpport'), function(){
   console.log('Express http server listening on port ' + app.get('httpport'));
 });
 
-http.createServer(app).listen(3000, function(){
-	  console.log('Express http server listening on port 3000'  );
-});
+//http.createServer(app).listen(3000, function(){
+//	  console.log('Express http server listening on port 3000'  );
+//});
 //https.createServer(options, app).listen(app.get('httpsport'),function(){
 //	console.log('Express https server listening on port' + app.get('httpsport'));
 //});
