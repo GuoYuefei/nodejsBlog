@@ -1,0 +1,15 @@
+{
+	"comment" : "这个是文章类型的json数据",
+	"types":[
+		{
+			"id":0,
+			"type":"DBStudy",
+			"classification":["mongo","mysql"]
+		},
+		{
+			"id":1,
+			"type":"gitStudy",
+			"classification":[]
+		}
+	]
+}

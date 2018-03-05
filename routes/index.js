@@ -28,6 +28,7 @@ exports.showAllCode = require("./admin/showAllCode.js").showAllCode;
 exports.addlanguage = require("./admin/codeUpdata.js").addlanguage;
 exports.delLink = require("./admin/codeUpdata.js").delLink;
 exports.getDBText = require("./admin/databases/updataDBText").getDBText;
+exports.articletype = require('./admin/dealjson.js').articletype;
 
 
 //用于中间件，过滤作用
