@@ -20,8 +20,8 @@ exports.codeInsert = function(req,res){
 			res.end("err:"+err);
 			db.close();
 		}
-		console.log(result);
+//		console.log(result);
 		db.close();
+		res.end("ok!!!<br/>");
 	});
-	res.end("ok!!!<br/>");
 }

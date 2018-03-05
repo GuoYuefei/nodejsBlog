@@ -5,6 +5,7 @@ var mongoclient = require("mongodb").MongoClient;
 var dbhost = 'mongodb://localhost:27017/indexGo';
 
 exports.hubLinks = "hubLinks";
+exports.dbaticles = "DBAticles";
 /**
  * 向mongo查询数据
  * db，是为了向上继承数据。。。
@@ -41,7 +42,7 @@ exports.insertData = function(db,col,insertStr,callback){
 			console.log('Error:'+ err);
 			return;
 		}     
-		callback(db,result);
+		callback(db,err,result);
 	});
 }
 /**
