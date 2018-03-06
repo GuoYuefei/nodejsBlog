@@ -14,7 +14,7 @@ exports.authFilter = function(req,res,next){
 	}catch(e){									//如果username不存在就退出
 //		console.log(e);
 		res.set('Content-Type', 'text/html');
-		res.end("Please login first!");
+		res.end("Please login first!!");
 		return;
 	}
 	

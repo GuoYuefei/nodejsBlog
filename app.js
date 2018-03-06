@@ -2,7 +2,6 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -21,13 +20,6 @@ var express = require('express')
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 var upload = multer();
-
-/*************************************二进制流文件上传部分********************************/
-
-
-
-
-
 
 
 // all environments

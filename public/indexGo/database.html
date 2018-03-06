@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,23 +19,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
+<div class="container" >
 
 <div class="row" class="div-markdown tab-content alert alert-warning">
-	<div class=" col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" >
-		<div class="checkbox">
-    	<label>
-      	<input type="checkbox" ng-model="oneAtATime" ng-init="oneAtATime=true">
-      		Open only one at a time
-    	</label>
-	</div>
-	<uib-accordion close-others="oneAtATime">
-		<!-- 需要用ui-bootstrap中定义的class标签 -->
-		 <uib-accordion-group panel-class="panel-warning" ng-repeat="x in test" heading="{{x.title}}">
-      		<!-- 使用这个自定义的安全过滤器才能显示出html，不然只能显示html代码 -->
-			<div class="div-markdown  alert alert-warning"  ng-bind-html="x.content | trustHtml"></div>
-    	</uib-accordion-group>
-	</uib-accordion>
+	<div class=" col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+		<uib-tabset active="active"  type="pills">
+			<div class="checkbox">
+		    	<label>
+			      	<input type="checkbox" ng-model="oneAtATime" ng-init="oneAtATime=true">
+			      		Open only one at a time
+		    	</label>
+			</div>
+            <uib-tab index="$index+1" ng-repeat="y in all" heading="{{y[0].type|delstring}}">
+				<uib-accordion close-others="oneAtATime">
+					<!-- 需要用ui-bootstrap中定义的class标签 -->
+					 <uib-accordion-group panel-class="panel-warning" ng-repeat="x in y" heading="{{x.title}}">
+					 	 <span class="label label-success">作者：{{x.author}}</span> 
+					 	 <span class="label label-info">{{x.uptime|date:'yyyy-MM-dd'}}</span> 
+			      		<!-- 使用这个自定义的安全过滤器才能显示出html，不然只能显示html代码 -->
+						<div class="div-markdown  alert alert-warning"  ng-bind-html="x.content | trustHtml"></div>
+			    	</uib-accordion-group>
+				</uib-accordion>
+             </uib-tab>
+        </uib-tabset>
+		
 	</div>
 </div>
 
