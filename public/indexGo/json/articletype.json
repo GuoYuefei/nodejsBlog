@@ -1,15 +1,15 @@
 {
-	"comment" : "这个是文章类型的json数据",
+	"comment" : "这个是文章类型的json数据,i用于辅助计数,content做一个容器，容器内容有各自程序生成",
 	"types":[
 		{
-			"id":0,
-			"type":"DBStudy",
-			"classification":["mongo","mysql"]
+			"i":0,
+			"type":"mongo",
+			"content":[]
 		},
 		{
-			"id":1,
-			"type":"gitStudy",
-			"classification":[]
+			"i":0,
+			"type":"mysql",
+			"content":[]
 		}
 	]
 }

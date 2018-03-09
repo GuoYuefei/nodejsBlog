@@ -15,43 +15,43 @@
 <script src="./js/bootstrap/bootstrap.min.js"></script>
 
 <title>myHome</title>
+<style type="text/css">
+body {
+	background: #000;
+	margin: 0;
+}
+
+</style>
+
+
+
 </head>
 <body>
-	<div class="row padding-2 visible-lg visible-md"></div>
-	<div class="row padding-1 visible-sm"></div>
-	<div class="row">
-		<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2">
-			<div id="myCarousel" class="carousel slide myCarousel"
-				data-ride="carousel" data-interval=4000>
-				<!-- 轮播（Carousel）指标 -->
-				<ol class="carousel-indicators">
-					<li data-target=".myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target=".myCarousel" data-slide-to="1"></li>
-					<li data-target=".myCarousel" data-slide-to="2"></li>
-				</ol>
-				<!-- 轮播（Carousel）项目 -->
-				<div class="carousel-inner">
-					<div class="item active">
-						<img src="public/images/f1.jpg" alt="First slide">
-						<div class="carousel-caption">悠闲的生活</div>
-					</div>
-					<div class="item">
-						<img src="/public/images/f2.JPG" alt="Second slide">
-						<div class="carousel-caption">简单的工作</div>
-					</div>
-					<div class="item">
-						<img src="/public/images/f3.JPG" alt="Third slide">
-						<div class="carousel-caption">自然的学习</div>
-					</div>
-				</div>
-				<!-- 轮播（Carousel）导航 这一部分还是用.myCAROUSEL来代替#吧。。。id开头的#和angular的路由重合了 -->
-				<a class="carousel-control left" href=".myCarousel"
-					data-slide="prev">&lsaquo; </a> <a class="carousel-control right"
-					href=".myCarousel" data-slide="next">&rsaquo; </a>
+
+<div class="container-fluid">
+	<!-- 填充用的 -->
+<!--	<div class="row padding-2 visible-lg visible-md"></div-->
+<!--    <div class="row padding-1 visible-sm"></div-->
+	
+		
+	<div class="row" >
+		<div class="col-lg-3 col-md-3"  style="opacity:0.9;">
+			<div class="alert alert-black fade in"  hidden="true" id="fin">
+				 <button type="button" class="close" data-dismiss="alert">×</button>
+						<p class="text-primary lgcenter"> WELCOME TO 南汉乔夫DE个人博客</p>
 			</div>
 		</div>
+	</div>
+	<div class="row">
+		<canvas id="canvas" >Canvas is not supported in your browser.</canvas>
 		
 	</div>
+	
+
+	<div class="row">
+	
+	</div>
+</div>
 
 
 

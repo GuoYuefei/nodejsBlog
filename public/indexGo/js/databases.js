@@ -31,38 +31,50 @@ myApp.controller("database",function($scope,$http,$sce,$location,$anchorScroll){
 //	converter.setOption('tables',true);
 //	converter.setOption('parseImgDimensions', true);
 	$http.get("./public/databases").then(function(res){
-		var mongo = new Array();
-		var mongoi = 0;
-		var mysql = new Array();
-		var mysqli = 0;
-		$scope.all = [mongo,mysql];
+//		var mongo = new Array();
+//		var mongoi = 0;
+//		var mysql = new Array();
+//		var mysqli = 0;
+		var falg = false;			//是否将下面types数组各元素的content添加入$scope.all中
+		$scope.all = new Array();
 //		console.log(res);
 		/**
-		 * data.contents是数组，将数组内容取出，绑定到scope的变量中
-		 * 有可完善的地方，增加类型需要改动源代码
+		 * 以上手动在代码中添加的信息从服务器端json文件读取
 		 */
-		for(var i=0;i<res.data.contents.length;i++){
-			var article = res.data.contents[i];
-			if(article.type=='string:mongo'){
-				mongo[mongoi++] = {
-						'id':article.id,
-						'type':article.type,
-						'uptime':article.uptime,
-						'author':article.author,
-						'title':article.title,
-						'content':converter.makeHtml(article.content)
-				}
-			}else if(article.type=='string:mysql'){
-				mysql[mysqli++] = {
-						'id':article.id,
-						'type':article.type,
-						'uptime':article.uptime,
-						'author':article.author,
-						'title':article.title,
-						'content':converter.makeHtml(article.content)
+		$http.get('/json/articletype').then(function(res_json){
+			console.log(res_json);
+			var types = res_json.data.types;			//记录分类的数组里面有对象{'id':0,'type':****}
+			
+			/**
+			 * data.contents是数组，将数组内容取出，绑定到scope的变量中
+			 * 有可完善的地方，增加类型需要改动源代码   ////已经完善
+			 */
+			for(var i=0;i<res.data.contents.length;i++){
+				var article = res.data.contents[i];
+				for(var j=0;j<types.length;j++){
+					//若类型相符就将文章添加入相应的容器中
+					if(article.type=='string:'+types[j].type){		//数据库中取出来的type有string:前缀
+						types[j].content[types[j].i++] = {
+								'id':article.id,
+								'type':article.type,
+								'uptime':article.uptime,
+								'author':article.author,
+								'title':article.title,
+								'content':converter.makeHtml(article.content)
+						}
+						break;		//只要执行了一次就可以跳出内循环
+					}
 				}
 			}
-		}
+			
+			for(var i=0;i<types.length;i++){
+				$scope.all[i] = types[i].content;			//将types各元素计算好的contnet放入scope中
+			}
+			console.log($scope.all);
+		},function(err){
+			console.error(err);
+			return;			//err
+		})	
 	});
 	/**************get mongo end !********************/
 	

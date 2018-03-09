@@ -1,5 +1,23 @@
 @CHARSET "UTF-8";
 
+
+
+#canvas {
+	cursor: crosshair;
+	display: block;
+}
+
+.alert-black {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #dddddd;
+}
+
+p.lgcenter {
+	text-align:center;
+	font-size:1.1em;
+}
+
 .carousel-img{
 	width:960px !important
 	height:470px !important

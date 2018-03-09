@@ -66,7 +66,7 @@ app.get('/', routes.index);
 app.get('/code',routes.codes);
 app.get("/public/databases",routes.sendDBLearnText);	//用于获取mongoDB页面的文章
 app.get('/admin/admin.html',routes.admin);
-app.get('/admin/json/articletype',routes.articletype);
+app.get('/json/articletype',routes.articletype);
 
 app.get('/users', user.list);
 

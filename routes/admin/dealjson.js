@@ -5,7 +5,7 @@ var fs = require('fs');
 
 exports.articletype = (req,res) => {
 	try{
-		fs.readFile(__dirname+'./../../public/indexGo/json/articletype.json','utf8',function(err,data){
+		fs.readFile(__dirname+'/../../public/indexGo/json/articletype.json','utf8',function(err,data){
 			if(err){
 				console.error(err);
 				res.json({result:0});
