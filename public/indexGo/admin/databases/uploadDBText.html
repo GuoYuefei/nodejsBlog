@@ -19,8 +19,9 @@
   </div>
   <div class="form-group">
   	<lable for="name">文章类型</lable>
-	<select  class="form-control" name="type" ng-model="articletype" ng-options="x.type for x in types">
+	<select  class="form-control" name="type" ng-model="articletype" ng-options="x.type as x.type for x in types">
 	</select>  
+	<p>{{articletype}}</p>
   </div>
   <div class="form-group">
     <label for="inputfile">文件输入</label>

@@ -67,8 +67,11 @@ myApp.controller("database",function($scope,$http,$sce,$location,$anchorScroll){
 				}
 			}
 			
-			for(var i=0;i<types.length;i++){
-				$scope.all[i] = types[i].content;			//将types各元素计算好的contnet放入scope中
+			for(var i=0,j=0;j<types.length;i++,j++){
+				if(types[j].content.length==0){			//空数组就没必要放入all了
+					i--;continue;
+				}
+				$scope.all[i] = types[j].content;			//将types各元素计算好的contnet放入scope中
 			}
 			console.log($scope.all);
 		},function(err){

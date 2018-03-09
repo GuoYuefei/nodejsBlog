@@ -22,8 +22,8 @@ var dealinfo = (req,res) => {
 	var ip = req.ip;								//上传的ip，不考虑代理
 	var fileSourceName = req.file.originalName;		//文件最初的名字
 	var textTitle = req.body.title;					//文章的标题、题目
-	var type = req.body.type;			//在db大类里，是mysql呢还是mongo呢这是一个问题
-
+	var type = req.body.type;			     //在db大类里，是mysql呢还是mongo呢这是一个问题
+	
 	return {'source':temppath,
 			'dest':dest,
 			'author':author,
